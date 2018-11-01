@@ -6,20 +6,22 @@
 
 A wrapper module for React of the 'Emotive' css-in-js library.
 
-```jsx
+```js
 import Emotive from 'react-emotive';
 import Css from 'emotive';
 
 const MyComp = Emotive.div(
-    Css.Position.ABSOLUTE,
-    Css.Top.px(50),
-    Css.Left.X(10),
-    Css.FontSize.em(20),
-    props => Css.BackgroundColor.set(props.bgColor)
+    props => [
+        Css.BackgroundColor.set(props.bgColor || Color.GREEN),
+        Css.Border.set(Length.px(1), Keyword.SOLID, props.borderColor)
+    ],
+    Css.Height.px(200),
+    Css.Color.BLUE,
+    Css.FontSize.px(50)
 );
 
 const OtherComp = (props) => (
-    <MyComp bgColor='red'>
+    <MyComp bgColor={Color.RED} borderColor={Color.GREEN}>
         Emotive is cool with React
     </MyComp>
 );

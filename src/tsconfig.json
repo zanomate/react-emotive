@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es6",
+    "baseUrl": ".",
+    "experimentalDecorators": true,
+    "removeComments": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "lib": [
+      "es2015", "es2016", "es2017.object"
+    ]
+  }
+}

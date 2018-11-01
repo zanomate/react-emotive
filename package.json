@@ -2,20 +2,46 @@
   "name": "react-emotive",
   "version": "0.1.0",
   "description": "Wrapper for 'Emotive' library to use in React projects",
-  "main": "index.js",
+  "author": "Zanomate",
+  "license": "ISC",
+  "main": "react-emotive.ts",
+  "homepage": "https://github.com/zanomate/react-emotive#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zanomate/react-emotive.git"
   },
-  "author": "Zanomate",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/zanomate/react-emotive/issues"
   },
-  "homepage": "https://github.com/zanomate/react-emotive#readme",
+  "scripts": {
+    "clean": "shx rm -rf dist/ && shx mkdir dist",
+    "gen": "ts-node --project ./src/tsconfig.json -r tsconfig-paths/register src/index.ts",
+    "build": "npm run build:es6 && npm run build:esm && npm run build:cjs && npm run build:umd",
+    "build:es6": "tsc --moduleResolution node --module es2015 --target es2015 --outDir dist react-emotive.ts && shx mv dist/react-emotive.js dist/react-emotive.es6.js",
+    "build:esm": "tsc --moduleResolution node --module es2015 --target es5 --outDir dist react-emotive.ts && shx mv dist/react-emotive.js dist/react-emotive.esm.js",
+    "build:cjs": "tsc --module commonjs --target es5 --outDir dist --declaration --declarationDir dist react-emotive.ts && shx mv dist/react-emotive.js dist/react-emotive.cjs.js",
+    "build:umd": "rollup dist/react-emotive.esm.js --format umd --name react-emotive --file dist/react-emotive.umd.js",
+    "cp": "shx cp build/package.json dist/package.json && shx cp README.md dist/README.md",
+    "all": "npm run clean && npm run gen && npm run build && npm run cp"
+  },
   "dependencies": {
+    "emotive": "^0.6.1",
     "filter-invalid-dom-props": "^2.0.0",
-    "emotive": "^0.6.0",
+    "npm": "^6.4.1",
     "react": "^16.6.0"
+  },
+  "devDependencies": {
+    "@types/filter-invalid-dom-props": "^2.0.0",
+    "@types/node": "^10.12.1",
+    "@types/prettier": "^1.13.2",
+    "@types/react": "^16.4.18",
+    "csstype": "^2.5.7",
+    "fs": "0.0.1-security",
+    "prettier": "^1.14.3",
+    "shx": "^0.3.2",
+    "ts-loader": "^5.3.0",
+    "ts-node": "^7.0.1",
+    "tsconfig-paths": "^3.6.0",
+    "typescript": "^3.1.4"
   }
 }
