@@ -31,7 +31,7 @@ const printer = ts.createPrinter({
 });
 
 export function writefile() {
-    fs.writeFileSync('./react-emotive.ts', format(codeToWrite.join(''), {
+    fs.writeFileSync('build/react-emotive.ts', format(codeToWrite.join(''), {
         printWidth: 120,
         parser: 'typescript',
         tabWidth: 4

@@ -4,24 +4,21 @@
               
 [![size](http://img.badgesize.io/https://unpkg.com/react-emotive/index.js?label=size)](http://img.badgesize.io/https://unpkg.com/react-emotive/index.js?label=size)
 
-A wrapper module for React of the 'Emotive' css-in-js library.
+A wrapper for React of the 'Emotive' css-in-js library.
 
 ```js
-import Emotive from 'react-emotive';
-import Css from 'emotive';
+import Styled from 'react-emotive';
+import Css, {Color} from 'emotive';
 
-const MyComp = Emotive.div(
-    props => [
-        Css.BackgroundColor.set(props.bgColor || Color.GREEN),
-        Css.Border.set(Length.px(1), Keyword.SOLID, props.borderColor)
-    ],
+const MyComp = Styled.div(
     Css.Height.px(200),
     Css.Color.BLUE,
-    Css.FontSize.px(50)
+    Css.FontSize.px(50),
+    props => Css.BackgroundColor.set(props.bgColor)
 );
 
 const OtherComp = (props) => (
-    <MyComp bgColor={Color.RED} borderColor={Color.GREEN}>
+    <MyComp bgColor={Color.RED}>
         Emotive is cool with React
     </MyComp>
 );
