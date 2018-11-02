@@ -12,7 +12,7 @@ const propertiesId = id('properties');
 
 export function gen() {
 
-    const emotiveId = id('Emotive');
+    const emotiveId = id('Styled');
 
     const methods: { [name: string]: Expr } = {};
 

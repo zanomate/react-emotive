@@ -33,7 +33,7 @@ function component(elementType: string | ComponentClass, ...properties: Property
         return createElement<any>(elementType, { style: emotiveStyle, ...domProps }, props.children);
     };
 }
-export const Emotive = {
+export const Styled = {
     component: component,
     a: (...properties: PropertyType[]): any => {
         return component("a", ...properties);
@@ -387,4 +387,4 @@ export const Emotive = {
         return component("wbr", ...properties);
     }
 };
-export default Emotive;
+export default Styled;
