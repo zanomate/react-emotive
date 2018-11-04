@@ -7,8 +7,7 @@
 A wrapper for React of the 'Emotive' css-in-js library.
 
 ```js
-import Styled from 'react-emotive';
-import Css, {Color} from 'emotive';
+import {Styled, Css, Color} from 'react-emotive';
 
 const MyComp = Styled.div(
     Css.Height.px(200),
@@ -37,3 +36,26 @@ or [Yarn](https://yarnpkg.com/en/package/react-emotive)
 yarn add react-emotive
 ```
 
+## Styled
+
+Use the `Styled` object to create custom styled React components.
+
+Every HTML element is avaiable as a method
+
+```js
+const BasedOnDiv = Styled.div(
+    ...
+);
+```
+
+You can also extends another component using `Styled.component` method
+
+```js
+const BasedOnComponent = Styled.component(OtherComponent
+    ...
+);
+```
+
+## Emotive
+
+Every `emotive` object is re-exported to be directly avaiable. For a complete list see the [Emotive npm package](https://www.npmjs.com/package/emotive)

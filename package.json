@@ -1,6 +1,6 @@
 {
   "name": "react-emotive",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Wrapper for 'Emotive' library to use in React projects",
   "author": "Zanomate",
   "license": "ISC",
@@ -22,7 +22,7 @@
     "build": "npm run clean && npm run generate && npm run types && npm run rollup && npm run cp"
   },
   "dependencies": {
-    "emotive": "^0.7.0",
+    "emotive": "^1.0.0",
     "filter-invalid-dom-props": "^2.0.0",
     "react": "^16.6.0"
   },
