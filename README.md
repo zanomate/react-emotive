@@ -1,8 +1,8 @@
-# react-emotive
+# React Emotive
 
 [![version](https://badge.fury.io/js/react-emotive.svg)](https://badge.fury.io/js/emotive)
               
-[![size](http://img.badgesize.io/https://unpkg.com/react-emotive/index.js?label=size)](http://img.badgesize.io/https://unpkg.com/react-emotive/index.js?label=size)
+[![size](http://img.badgesize.io/https://unpkg.com/react-emotive/react-emotive.js?label=package%20size)](http://img.badgesize.io/https://unpkg.com/react-emotive/react-emotive.js?label=package%20size)
 
 A wrapper for React of the 'Emotive' css-in-js library.
 
@@ -17,7 +17,11 @@ const MyComp = Styled.div(
     props => [
         Css.Color.set(props.textColor),
         Css.BackgroundColor.set(props.bgcolor)
-    ]
+    ],
+    mobile(
+        Css.Color.BLACK,
+        Css.BackgroundColor.RED
+    ),
 );
 
 const OtherComp = (props) => (
@@ -25,35 +29,6 @@ const OtherComp = (props) => (
         Emotive is cool with React
     </MyComp>
 );
-```
-
-Using Media Queries:
-
-```js
-import {Styled, Css, Media, Query} from 'react-emotive';
-
-const mobile = Media(Query.MaxWidth.px(576));
-
-const tablet = Media(Query.and(
-    Query.MinWidth.px(577),
-    Query.MaxWidth.px(992)
-));
-
-const MyComp = Styled.div(
-    Css.Color.WHITE,
-    Css.BackgroundColor.BLUE,
-    Css.Height.px(200),
-    Css.FontSize.px(50),
-    mobile(
-        Css.Color.BLACK,
-        Css.BackgroundColor.RED
-    ),
-    tablet(
-        Css.Color.GRAY,
-        Css.BackgroundColor.GREEN
-    )
-);
-
 ```
 
 ## Install
@@ -67,6 +42,18 @@ or [Yarn](https://yarnpkg.com/en/package/react-emotive)
 ```sh
 yarn add react-emotive
 ```
+
+## Index
+- [React Emotive](#react-emotive)
+	- [Install](#install)
+- [Usage](#usage)
+	- [Styled components](#styled-components)
+	- [Emotive](#emotive)
+	- [Props](#props)
+	- [Media Query](#media-query)
+	- [Nesting](#nesting)
+
+# Usage
 
 ## Styled components
 
@@ -87,6 +74,29 @@ const BasedOnComponent = Styled.component(OtherComponent
     ...
 );
 ```
+
+
+## Emotive
+
+Every `emotive` object is re-exported to be directly available from `react-emotive`.
+
+| Emotive object | Content |
+| --- | --- |
+| `Css` | Property objects |
+| `Method` | Methods |
+| `Length` | Length and percentage units methods |
+| `Angle` | Angle units methods |
+| `Time` | Time units methods |
+| `Frequency` | Frequency units methods |
+| `Resolution` | Resolution units methods |
+| `Keyword` | Keywords constants |
+| `Color` | Colors constants |
+| `Unit` | Units constants |
+| `Property` | Properties name constants |
+| `Query` | Media Queries |
+
+For a complete guide to these objects, see [Emotive User Guide](https://www.npmjs.com/package/emotive)
+
 
 ## Props
 
@@ -109,13 +119,33 @@ const MyComp = Styled.div(
 
 ## Media Query
 
-Using the `Media` function it is possible to create custom wrappers based on media queries:
+It is possible to create custom wrappers based on media queries. Properties specified inside them will be considered only when the corresponding conditions are satisfied. 
+
+```js
+import {Styled, Css, Media} from 'react-emotive';
+
+const printer = Media('print');
+const mobile = Media('(max-width: 576px)');
+
+const MyComp = Styled.div(
+    Css.Color.WHITE,
+    Css.BackgroundColor.BLUE,
+    printer(
+        Css.BackgroundColor.WHITE
+    ),
+    mobile(
+        Css.Color.BLACK,
+        Css.BackgroundColor.RED
+    )
+);
+```
+
+Of corse, the Emotive's `Query` object is re-exported too. Use it to compose your media queries:
 
 ```js
 import {Styled, Css, Media, Query} from 'react-emotive';
 
 const printer = Media(Query.PRINT);
-const mobile = Media(Query.MaxWidth.px(576));
 const tablet = Media(Query.and(
     Query.MinWidth.px(577),
     Query.MaxWidth.px(992)
@@ -124,20 +154,40 @@ const tablet = Media(Query.and(
 const MyComp = Styled.div(
     Css.Color.WHITE,
     Css.BackgroundColor.BLUE,
-    Css.Height.px(200),
-    Css.FontSize.px(50),
-    mobile(
-        Css.Color.BLACK,
-        Css.BackgroundColor.RED
+    printer(
+        Css.BackgroundColor.WHITE
     ),
     tablet(
         Css.Color.GRAY,
         Css.BackgroundColor.GREEN
     )
 );
-
 ```
 
-## Emotive
+## Nesting
 
-Every `emotive` object is re-exported to be directly avaiable. For a complete list see the [Emotive npm package](https://www.npmjs.com/package/emotive)
+Yes, you can use nested media query wrappers, together with props based properties, with no limits.
+
+```js
+const MyComp = Styled.div(
+    Css.Color.WHITE,
+    Css.BackgroundColor.BLUE,
+    printer(
+        Css.BackgroundColor.WHITE,
+        props => Css.FontFamily.set(props.printerFont)
+    ),
+    mobile(
+        Css.Color.GRAY,
+        Css.BackgroundColor.GREEN,
+        hover(
+            Css.Color.BLUE,
+        )
+    ),
+    props => [
+        Css.FontSize.set(props.font),
+        mobile(
+            Css.FontSize.set(props.fontMobile)
+        )
+    ]
+);
+```

@@ -13,8 +13,9 @@
     "url": "https://github.com/zanomate/react-emotive/issues"
   },
   "peerDependencies": {
-    "emotive": "^1.0.0",
+    "emotive": "^1.1.0",
     "filter-invalid-dom-props": "^2.0.0",
+    "global": "^4.3.2",
     "react": "^16.6.0"
   },
   "main": "react-emotive.cjs.js",
