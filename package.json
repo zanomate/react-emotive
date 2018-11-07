@@ -1,6 +1,6 @@
 {
   "name": "react-emotive",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "description": "Wrapper for 'Emotive' library to use in React projects",
   "author": "Zanomate",
   "license": "ISC",
@@ -21,14 +21,12 @@
     "build": "npm run clean && npm run types && npm run rollup && npm run cp"
   },
   "dependencies": {
-    "emotive": "^1.1.0",
     "filter-invalid-dom-props": "^2.0.0",
     "global": "^4.3.2",
     "react": "^16.6.0"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
-    "react-dom": "^16.6.0",
     "@types/filter-invalid-dom-props": "^2.0.0",
     "@types/node": "^10.12.2",
     "@types/prettier": "^1.13.2",
@@ -41,9 +39,11 @@
     "copy-webpack-plugin": "^4.5.2",
     "css-syntax-parser": "^1.5.1",
     "csstype": "^2.5.7",
+    "emotive": "^1.1.1",
     "fs": "0.0.1-security",
     "mdn-data": "^2.0.0",
     "prettier": "^1.14.3",
+    "react-dom": "^16.6.0",
     "rollup": "^0.66.6",
     "rollup-plugin-babel": "^4.0.3",
     "rollup-plugin-babel-minify": "^6.1.1",
