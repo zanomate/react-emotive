@@ -1,6 +1,6 @@
 {
   "name": "react-emotive",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Wrapper for 'Emotive' library to use in React projects",
   "author": "Zanomate",
   "license": "ISC",
@@ -15,19 +15,23 @@
   },
   "scripts": {
     "clean": "shx rm -rf dist/*",
-    "generate": "ts-node --project ./src/tsconfig.json -r tsconfig-paths/register src/index.ts",
+    "types": "tsc -d --emitDeclarationOnly --outDir dist src/react-emotive.ts",
     "rollup": "rollup -c",
-    "types": "tsc -d --outDir dist build/react-emotive.ts",
     "cp": "shx cp build/package.json dist && shx cp README.md dist",
-    "build": "npm run clean && npm run generate && npm run types && npm run rollup && npm run cp"
+    "build": "npm run clean && npm run types && npm run rollup && npm run cp"
   },
   "dependencies": {
     "emotive": "^1.1.0",
     "filter-invalid-dom-props": "^2.0.0",
-    "react": "^16.6.0"
+    "global": "^4.3.2"
+  },
+  "peerDependencies": {
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
+    "react-dom": "^16.6.0",
     "@types/filter-invalid-dom-props": "^2.0.0",
     "@types/node": "^10.12.2",
     "@types/prettier": "^1.13.2",
@@ -43,12 +47,10 @@
     "fs": "0.0.1-security",
     "mdn-data": "^2.0.0",
     "prettier": "^1.14.3",
-    "react-dom": "^16.6.0",
     "rollup": "^0.66.6",
     "rollup-plugin-babel": "^4.0.3",
     "rollup-plugin-babel-minify": "^6.1.1",
     "rollup-plugin-commonjs": "^9.2.0",
-    "rollup-plugin-filesize": "^5.0.1",
     "rollup-plugin-local-resolve": "^1.0.7",
     "rollup-plugin-node-resolve": "^3.4.0",
     "rollup-plugin-peer-deps-external": "^2.2.0",
