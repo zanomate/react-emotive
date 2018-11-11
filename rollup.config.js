@@ -7,7 +7,7 @@ import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import typescript from 'rollup-plugin-typescript2';
 
 export default {
-    input: 'src/react-emotive.ts',
+    input: 'build/react-emotive.ts',
     output: [
         {
             file: 'dist/react-emotive.js',
@@ -27,7 +27,8 @@ export default {
     external: [
         'react',
         'filter-invalid-dom-props',
-        'emotive'
+        'emotive',
+        'styled-components'
     ],
     plugins: [
         typescript(),

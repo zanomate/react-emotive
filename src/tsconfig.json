@@ -3,6 +3,10 @@
     "module": "commonjs",
     "target": "es6",
     "baseUrl": ".",
+    "paths": {
+      "core/*": ["./core/*"],
+      "gen/*": ["./gen/*"]
+    },
     "removeComments": true,
     "strict": true,
     "noImplicitAny": true,
