@@ -3,15 +3,14 @@
 const path = require('path');
 
 module.exports = {
-    mode: 'production',
+    mode: 'development',
     entry: './src/index.js',
 
     output: {
-        path: path.join(__dirname, './dist'),
+        path: path.join(__dirname),
         filename: 'react-emotive.js',
         library: 'react-emotive',
         libraryTarget: 'umd',
-        publicPath: '/dist/',
         umdNamedDefine: true
         // globalObject: 'typeof self !== \'undefined\' ? self : this'
     },
