@@ -80,6 +80,9 @@ export function _Media(query: string) {
     return (...styles: Sheet[]) => new Condition("@media " + query, styles);
 }
 export const Styled = {
+    component: (component: React.ComponentType) => {
+        return (...properties: Sheet[]): React.Component => styled(component)(props => buildSheet(properties, props));
+    },
     Selector: _Selector,
     Media: _Media,
     a: (...properties: Sheet[]): React.Component => styled.a(props => buildSheet(properties, props)),

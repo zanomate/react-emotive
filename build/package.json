@@ -1,6 +1,6 @@
 {
   "name": "react-emotive",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Wrapper for 'Emotive' library to use in React projects",
   "author": "Zanomate",
   "license": "ISC",
@@ -12,11 +12,12 @@
   "bugs": {
     "url": "https://github.com/zanomate/react-emotive/issues"
   },
-  "dependencies": {
-    "emotive": "^1.1.1",
+  "peerDependencies": {
     "filter-invalid-dom-props": "^2.0.0",
     "global": "^4.3.2",
-    "react": "^16.6.0"
+    "react": "^16.6.0",
+    "emotive": "^1.2.2",
+    "styled-components": "^4.0.3"
   },
   "main": "react-emotive.cjs.js",
   "module": "react-emotive.esm.js",

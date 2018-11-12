@@ -1,6 +1,6 @@
 {
   "name": "react-emotive",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Wrapper for 'Emotive' library to use in React projects",
   "author": "Zanomate",
   "license": "ISC",
@@ -25,7 +25,7 @@
     "filter-invalid-dom-props": "^2.0.0",
     "global": "^4.3.2",
     "react": "^16.6.0",
-    "emotive": "^1.2.1",
+    "emotive": "^1.2.2",
     "styled-components": "^4.0.3"
   },
   "devDependencies": {
@@ -42,7 +42,7 @@
     "copy-webpack-plugin": "^4.5.2",
     "css-syntax-parser": "^1.5.1",
     "csstype": "^2.5.7",
-    "emotive": "^1.2.1",
+    "emotive": "^1.2.2",
     "filter-invalid-dom-props": "^2.0.0",
     "fs": "0.0.1-security",
     "global": "^4.3.2",
