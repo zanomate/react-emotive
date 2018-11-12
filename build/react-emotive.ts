@@ -16,9 +16,10 @@ export const Property = Emotive.Property;
 export const Selector = Emotive.Selector;
 
 export type Props = { [propName: string]: any };
-export type StaticSheet = { [propertyName: string]: any };
-export type SheetFromProps = (props: Props) => StaticSheet | StaticSheet[];
-export type Sheet = StaticSheet | SheetFromProps | Condition;
+export type StaticSheet = Emotive.Sheet;
+export type DynamicSheet = { [propertyName: string]: any };
+export type SheetFromProps = (props: Props) => Sheet | Sheet[];
+export type Sheet = StaticSheet | DynamicSheet | SheetFromProps | Condition;
 
 //Utils
 class Condition {
