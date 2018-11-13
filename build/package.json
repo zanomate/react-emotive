@@ -1,6 +1,6 @@
 {
   "name": "react-emotive",
-  "version": "1.2.3",
+  "version": "1.2.6",
   "description": "Wrapper for 'Emotive' library to use in React projects",
   "author": "Zanomate",
   "license": "ISC",
@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "react": "^16.6.0",
-    "emotive": "^1.2.2",
+    "emotive": "^1.2.4",
     "styled-components": "^4.0.3"
   },
   "main": "react-emotive.cjs.js",

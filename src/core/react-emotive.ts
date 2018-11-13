@@ -57,7 +57,6 @@ const buildSheet = (styles: Sheet[], props: Props) => {
     };
 
     const sheet = Css.sheet(...applyProps(styles));
-    console.log(sheet);
     return sheet;
 };
 
